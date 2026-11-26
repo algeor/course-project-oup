@@ -1,393 +1,290 @@
-/* Цветовете и размерите са събрани тук за лесна промяна. */
+/* Единна система: цветове, три шрифтови стека, размери и движение. */
 :root {
-  --night: #080e17;
-  --paper: #eee4cf;
-  --gold: #d9bd83;
-  --muted: #b5b8bc;
-  --line: #d9bd832e;
+  --night: #0B1118;
+  --slate: #17232E;
+  --gold: #C9AD78;
+  --ivory: #EBE0CA;
+  --muted: #B5B8BC;
+  --burgundy: #49272D;
+  --line: rgb(201 173 120 / 23%);
+  --font-heading: Baskerville, 'Palatino Linotype', Georgia, serif;
+  --font-body: Georgia, 'Times New Roman', serif;
+  --font-label: Arial, Helvetica, sans-serif;
+  --content-width: 1180px;
+  --reading-width: 800px;
+  --gutter: clamp(20px, 5.5vw, 88px);
+  --space-1: .5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4.5rem;
+  --space-7: 7rem;
+  --section-space: clamp(72px, 8.5vw, 128px);
   --header-height: 76px;
-  --serif: 'Baskerville', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+  --border: 1px solid var(--line);
+  --duration-fast: 180ms;
+  --duration-reveal: 420ms;
+  --ease: cubic-bezier(.22, .61, .36, 1);
 }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-height) + 20px); }
-body {
-  margin: 0;
-  background: var(--night);
-  color: var(--paper);
-  font-family: Georgia, 'Times New Roman', serif;
-  line-height: 1.75;
-}
-img { display: block; max-width: 100%; }
+body { margin: 0; background: var(--night); color: var(--ivory); font: 16px/1.75 var(--font-body); }
+::selection { background: var(--slate); color: var(--ivory); }
+img { display: block; max-width: 100%; height: auto; }
+figure { margin: 0; }
 [hidden] { display: none !important; }
+h1, h2, h3, h4, p { margin-top: 0; }
+h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 400; text-wrap: balance; }
+h2 { font-size: clamp(38px, 5.25vw, 72px); line-height: 1.08; letter-spacing: -.025em; margin-bottom: var(--space-4); }
+h3 { font-size: clamp(25px, 2.5vw, 34px); line-height: 1.2; }
+h4 { font-size: 26px; line-height: 1.2; }
+em { color: var(--gold); font-weight: 400; }
 a { color: var(--gold); text-decoration: none; }
 a:hover { text-decoration: underline; text-underline-offset: 5px; }
 button { font: inherit; cursor: pointer; }
-a, button { -webkit-tap-highlight-color: transparent; }
+button, a { -webkit-tap-highlight-color: transparent; }
 :focus-visible { outline: 2px solid var(--gold); outline-offset: 6px; }
-h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; text-wrap: balance; }
-h1, h2, h3, p { margin-top: 0; }
-h2 { margin-bottom: 30px; font-size: clamp(38px, 5.6vw, 76px); letter-spacing: -.025em; }
-h2 em { color: var(--gold); font-weight: 400; }
-h3 { font-size: clamp(24px, 2.5vw, 32px); }
-.eyebrow, .brand, .house-name, .house-number, #quiz-step, .scroll-hint, .scene-markers {
-  font-family: Arial, sans-serif;
+.eyebrow, .brand, nav, .photo-caption, .artifact-label, .opening-index, #quiz-step, .quiz-note {
+  font-family: var(--font-label);
 }
-.eyebrow { color: var(--gold); font-size: 10px; letter-spacing: .28em; line-height: 1.6; }
-.text-link { display: inline-block; font-size: 14px; padding-block: 12px; }
-.text-link span { margin-left: 18px; }
-.button {
-  display: inline-block;
-  min-height: 48px;
-  padding: 12px 26px;
-  border: 1px solid var(--gold);
-  background: transparent;
-  color: var(--gold);
-  transition: background .2s, color .2s;
-}
-.button:hover { background: var(--gold); color: var(--night); text-decoration: none; }
-.skip-link {
-  position: fixed;
-  top: 10px;
-  left: 12px;
-  z-index: 50;
-  padding: 10px 18px;
-  background: var(--night);
-  transform: translateY(-160%);
-}
+.eyebrow { color: var(--gold); font-size: 10px; line-height: 1.6; letter-spacing: .24em; margin-bottom: var(--space-3); }
+.intro { max-width: 46ch; color: var(--muted); font-size: clamp(17px, 1.65vw, 21px); line-height: 1.65; }
+.section-note { max-width: 38ch; color: var(--muted); font-size: 16px; }
+.text-link { display: inline-flex; align-items: center; gap: var(--space-3); min-height: 48px; padding: 10px 0; font-size: 14px; }
+.action-link { background: transparent; color: var(--gold); border: 0; border-bottom: 1px solid var(--gold); text-align: left; }
+.action-link:hover { color: var(--ivory); border-color: var(--ivory); }
+.skip-link { position: fixed; top: 10px; left: 12px; z-index: 50; padding: 10px 18px; background: var(--night); transform: translateY(-160%); }
 .skip-link:focus { transform: none; }
 #progress { position: fixed; top: 0; left: 0; height: 2px; width: 0; background: var(--gold); z-index: 40; }
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  min-height: 76px;
-  padding: 16px 6%;
-  background: var(--night);
-  border-bottom: 1px solid var(--line);
-}
-.brand { font-size: 15px; letter-spacing: .2em; white-space: nowrap; }
-.brand span { display: inline-block; margin-right: 8px; font-size: 20px; }
-nav { display: flex; justify-content: center; gap: 26px; flex-wrap: wrap; font: 12px/1.5 Arial, sans-serif; }
-.site-header nav a { color: #d8d2c5; padding-block: 6px; }
+.site-header { position: sticky; top: 0; z-index: 20; min-height: 76px; display: flex; justify-content: space-between; align-items: center; gap: var(--space-4); padding: 12px var(--gutter); background: var(--night); border-bottom: var(--border); }
+.brand { font-size: 14px; letter-spacing: .2em; white-space: nowrap; }
+.brand span { font-size: 19px; margin-right: 9px; }
+nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; font-size: 12px; line-height: 1.5; }
+.site-header nav a { display: inline-flex; align-items: center; min-height: 44px; color: var(--ivory); }
 .site-header nav a:hover { color: var(--gold); }
 
-/* Резервирано място за отвореното писмо: няма промяна във височината. */
-.invitation {
-  min-height: calc(100svh - var(--header-height));
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 58px 20px 34px;
-  background: radial-gradient(ellipse at 50% 58%, #332a203e, transparent 55%),
-              radial-gradient(ellipse at 50% 0, #152436, var(--night) 72%);
-}
-.invitation h1 { margin: 10px 0 12px; font-size: clamp(68px, 10vw, 130px); letter-spacing: .025em; }
-.invitation-subtitle { color: var(--gold); font-size: clamp(13px, 1.6vw, 18px); font-style: italic; letter-spacing: .04em; }
-.invitation-intro { margin: 14px 0 0; color: var(--muted); font-size: 15px; }
-.envelope-stage { position: relative; width: min(400px, 100%); height: 375px; margin: 0 auto; }
-.envelope {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 195px;
-  background: #bca477;
-  perspective: 900px;
-  box-shadow: 0 25px 65px #0008;
-}
-.letter {
-  position: absolute;
-  inset: 7px 16px auto;
-  height: 270px;
-  padding: 22px 22px 16px;
-  background: radial-gradient(ellipse, #f1e4c6, #d4be93);
-  color: #3e3022;
-  border: 4px double #947448;
-  line-height: 1.45;
-  z-index: 1;
-  transition: transform .8s ease .25s;
-}
-.letter p { margin-bottom: 14px; font-size: 15px; }
-.envelope:not(.open) .letter { visibility: hidden; }
-.letter .letter-heading { color: #5b4229; font-family: var(--serif); font-size: 27px; letter-spacing: .06em; margin-bottom: 16px; }
-.letter .letter-address { font-style: italic; }
-.letter-link { display: inline-block; padding: 8px 6px; color: #563b20; font-size: 14px; border-bottom: 1px solid #947448; }
-.letter-link:focus-visible { outline-color: #563b20; }
-.letter .letter-signature { margin-top: 15px; font-size: 10px; color: #65513a; }
-.envelope-front {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(30deg, #baa176 49.5%, transparent 50%),
-              linear-gradient(-30deg, #d2ba8f 49.5%, transparent 50%);
-  z-index: 2;
-  pointer-events: none;
-}
-.flap {
-  position: absolute;
-  inset: 0;
-  background: #d8c39c;
-  clip-path: polygon(0 0, 100% 0, 50% 66%);
-  transform-origin: top;
-  transition: transform .65s ease;
-  z-index: 3;
-  pointer-events: none;
-}
-.seal {
-  position: absolute;
-  left: 50%;
-  top: 62%;
-  width: 58px;
-  height: 58px;
-  transform: translate(-50%, -50%);
-  border: 3px double #a66855;
-  border-radius: 50%;
-  padding: 0;
-  background: radial-gradient(circle at 30% 25%, #a75045, #722a2e 50%, #42151d);
-  color: #ead0a0;
-  font-family: var(--serif);
-  font-size: 28px;
-  box-shadow: 0 6px 16px #0006;
-  z-index: 4;
-}
-.seal:hover { background: #913e43; }
-.open .flap { transform: rotateX(180deg); z-index: 0; }
-.open .letter { transform: translateY(-175px); z-index: 3; }
-.open .seal { visibility: hidden; }
-.letter-hint { margin: 26px 0 0; color: var(--muted); font-size: 12px; }
-.invitation-skip { font-size: 12px; }
+/* Филмовото заглавие е над езерото; горната част остава за замъка. */
+.opening { position: relative; min-height: calc(100svh - var(--header-height)); isolation: isolate; overflow: hidden; display: flex; align-items: flex-end; }
+.opening-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 64% center; z-index: -2; }
+.opening::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, var(--night), transparent 72%), linear-gradient(90deg, #0b11186b, transparent 60%); }
+.opening-copy { width: min(var(--content-width), calc(100% - 2 * var(--gutter))); margin: 0 auto; padding-top: var(--space-7); padding-bottom: clamp(120px, 15vh, 160px); }
+.opening-copy .eyebrow { margin-bottom: var(--space-2); text-shadow: 0 1px 12px #000; }
+.opening h1 { font-size: clamp(72px, 10.4vw, 150px); line-height: .95; letter-spacing: .02em; margin: 0 0 var(--space-3); text-shadow: 0 2px 25px #0005; }
+.opening-subtitle { color: var(--gold); font: italic clamp(24px, 3.2vw, 42px)/1.2 var(--font-heading); margin-bottom: var(--space-2); }
+.opening-intro { font-size: 15px; margin-bottom: 0; }
+.opening-footer { position: absolute; left: var(--gutter); right: var(--gutter); bottom: var(--space-3); display: flex; justify-content: space-between; align-items: center; gap: var(--space-4); }
+.opening-index { font-size: 9px; letter-spacing: .2em; color: var(--gold); margin: 0; }
 
-/* Статичното оформление е основата. JS включва sticky режима след зареждане. */
-.journey { position: relative; background: #0d1720; }
-.cinematic-viewport { position: relative; }
-.scene { position: relative; min-height: max(280px, calc(100svh - var(--header-height))); overflow: hidden; isolation: isolate; }
-.scene-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.scene::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, #050b13b8, transparent 75%),
-              linear-gradient(0deg, #080e17d9, transparent 62%, #080e1726);
-  pointer-events: none;
-  z-index: 1;
-}
-.scene-copy { position: absolute; left: 8%; bottom: 15%; z-index: 3; max-width: 720px; padding-right: 24px; }
-.scene-copy .eyebrow { margin-bottom: 24px; }
-.scene-copy h2 { color: #fff2d6; font-size: clamp(48px, 7.4vw, 104px); line-height: .98; margin-bottom: 24px; text-shadow: 0 2px 24px #0006; }
-.scene-subtitle { margin: 0; max-width: 430px; font-size: clamp(15px, 1.4vw, 19px); color: #f2eadb; text-shadow: 0 2px 8px #000; }
-#journey-scene .scene-image { object-position: 57% center; }
-#arrival-scene .scene-image { object-position: 64% center; }
-#entrance-scene .scene-image { object-position: 58% center; }
-#great-hall-scene .scene-image { object-position: center; }
+/* Шест глави с обща ширина и ритъм; разделители само при съдържателна нужда. */
+.section { width: min(var(--content-width), calc(100% - 2 * var(--gutter))); margin-inline: auto; padding-block: var(--section-space); }
+.section-heading { max-width: var(--reading-width); margin-bottom: var(--space-5); }
+.chapter-introduction { display: grid; grid-template-columns: 1.1fr 1fr; align-items: end; gap: var(--space-6); margin-bottom: var(--space-5); }
+.chapter-introduction h2 { margin-bottom: 0; }
+.chapter-introduction > .intro { max-width: 40ch; margin-bottom: 6px; }
+.photo-caption { display: flex; justify-content: space-between; gap: var(--space-2); padding-top: 14px; font-size: 9px; line-height: 1.6; letter-spacing: .12em; color: var(--gold); }
+.editorial-image img { width: 100%; height: auto; }
 
-/* Четири екрана общо; изображенията променят само opacity, никога размер. */
-.cinematic-ready .journey { height: calc(4 * (100svh - var(--header-height))); }
-.cinematic-ready .cinematic-viewport {
-  position: sticky;
-  top: var(--header-height);
-  height: calc(100svh - var(--header-height));
-  min-height: 280px;
-  overflow: hidden;
-}
-.cinematic-ready .scene { position: absolute; inset: 0; min-height: 0; opacity: 0; will-change: opacity; }
-.cinematic-ready .scene:first-child { opacity: 1; }
-.cinematic-controls { display: none; }
-.cinematic-ready .cinematic-controls {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  position: absolute;
-  left: 8%;
-  right: 6%;
-  bottom: 20px;
-  z-index: 6;
-}
-.scroll-hint { color: #ddd3be; font-size: 9px; letter-spacing: .22em; margin: 0; }
-.scroll-hint span { margin-left: 16px; }
-.scene-markers { display: flex; list-style: none; gap: 22px; padding: 0; margin: 0; color: #bbb5a9; font-size: 10px; }
-.scene-markers li { border-bottom: 1px solid transparent; padding: 7px 2px; }
-.scene-markers .active { color: var(--gold); border-color: var(--gold); }
-.cinematic-controls .text-link { color: #f3d69f; font-size: 11px; }
+/* Двата слоя споделят grid клетка: височината е резервирана и няма скок. */
+.invitation { display: grid; grid-template-columns: .85fr 1.15fr; gap: var(--space-6); align-items: center; }
+.invitation-copy .section-note { margin-top: var(--space-4); margin-bottom: var(--space-4); }
+.invitation-photo { align-self: center; }
+.invitation-photo img { width: 100%; height: auto; }
+.invitation-visual .letter { margin-top: var(--space-4); }
+.invitation-ready .invitation-visual { display: grid; }
+.invitation-ready .invitation-visual > * { grid-area: 1 / 1; transition: opacity var(--duration-reveal) var(--ease); }
+.invitation-ready .letter { margin-top: 0; }
+.invitation-ready:not(.letter-open) .letter,
+.invitation-ready.letter-open .invitation-photo { opacity: 0; pointer-events: none; }
+.letter { padding: clamp(24px, 3vw, 42px); background: radial-gradient(ellipse at top left, #f0e4c8, #ddc9a0); color: #3e3022; border: 1px solid #a88c5c; }
+.letter h3 { font-size: 40px; letter-spacing: .03em; margin-bottom: var(--space-3); }
+.letter p { font-size: 15px; line-height: 1.7; margin-bottom: var(--space-3); }
+.letter-address { font-style: italic; }
+.letter a, .letter button { color: #563b20; }
+.letter .letter-accept { color: var(--burgundy); }
+.letter :focus-visible { outline-color: #563b20; }
+.letter-accept { display: inline-flex; align-items: center; gap: var(--space-3); min-height: 48px; border-bottom: 1px solid #947448; font-size: 15px; }
+.letter-footer { display: flex; justify-content: space-between; align-items: end; gap: var(--space-3); margin-top: var(--space-3); }
+.letter-footer p { font-size: 12px; margin: 0; }
+.letter-close { background: transparent; border: 0; border-bottom: 1px solid #947448; font-size: 12px; min-height: 44px; padding: 8px 0; }
 
-/* Слаба мъгла и малко светлинки; всички декоративни слоеве пропускат кликове. */
-.mist, #sparkles { display: none; pointer-events: none; }
-.cinematic-ready .mist {
-  display: block;
-  position: absolute;
-  inset: 62% -15% -20%;
-  z-index: 4;
-  background: radial-gradient(ellipse at 30% 65%, #b6d0d41c, transparent 55%),
-              radial-gradient(ellipse at 80% 75%, #cfdfdf14, transparent 45%);
-  animation: mist 18s ease-in-out infinite alternate;
-}
-@keyframes mist { to { transform: translateX(8%); } }
-.cinematic-ready #sparkles { display: block; position: absolute; inset: 0; z-index: 4; }
-.spark { position: absolute; bottom: -10px; border-radius: 50%; background: #f5dcaa; box-shadow: 0 0 7px #f5dcaa55; animation: rise linear infinite; }
-@keyframes rise {
-  0%, 100% { opacity: 0; }
-  20% { opacity: .35; }
-  80% { opacity: .18; }
-  100% { transform: translate(18px, -90svh); }
-}
-.candles { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
-.candles i {
-  position: absolute;
-  width: 4px;
-  height: 21px;
-  border-radius: 2px;
-  background: linear-gradient(90deg, #af9870, #efdbaf, #a48b62);
-  opacity: .55;
-  animation: candle-float 6s ease-in-out infinite alternate;
-}
-.candles i::before {
-  content: '';
-  position: absolute;
-  width: 5px;
-  height: 9px;
-  top: -9px;
-  left: -.5px;
-  border-radius: 60% 60% 40% 40%;
-  background: #ffe7ac;
-  box-shadow: 0 0 12px 3px #ffc07835;
-}
-.candles i:nth-child(1) { left: 13%; top: 21%; }
-.candles i:nth-child(2) { left: 29%; top: 14%; animation-delay: -2s; }
-.candles i:nth-child(3) { left: 62%; top: 12%; animation-delay: -3s; }
-.candles i:nth-child(4) { left: 79%; top: 28%; animation-delay: -1s; }
-.candles i:nth-child(5) { left: 91%; top: 18%; animation-delay: -4s; }
-@keyframes candle-float { to { transform: translateY(-10px); } }
-.journey.effects-paused .mist, .journey.effects-paused .spark,
-.scene[aria-hidden="true"] .candles i { animation-play-state: paused; }
-.trail {
-  position: fixed;
-  pointer-events: none;
-  z-index: 30;
-  border-radius: 50%;
-  background: var(--particle-color);
-  box-shadow: 0 0 6px var(--particle-color);
-  animation: glitter-fade .7s ease-out forwards;
-}
-@keyframes glitter-fade { from { opacity: .65; } to { opacity: 0; transform: translateY(12px); } }
+.journey-chapter { padding-top: var(--space-5); }
+.train-image { margin-bottom: var(--space-6); }
+.editorial-split { display: grid; grid-template-columns: .7fr 1.3fr; gap: var(--space-6); align-items: center; }
+.entrance-copy h3 { font-size: clamp(34px, 4.2vw, 56px); line-height: 1.1; margin-bottom: var(--space-3); }
+.entrance-copy > p:not(.eyebrow) { max-width: 29ch; color: var(--muted); }
+.hall-interlude { position: relative; min-height: 70svh; isolation: isolate; overflow: hidden; display: flex; align-items: flex-end; }
+.hall-interlude > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: -2; }
+.hall-interlude::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, var(--night), transparent 78%), linear-gradient(180deg, #0b111859, transparent 30%); }
+.hall-interlude figcaption { width: min(var(--content-width), calc(100% - 2 * var(--gutter))); margin: 0 auto; padding-block: var(--space-6); text-shadow: 0 2px 20px #000; }
+.hall-quote { font: italic clamp(30px, 4vw, 54px)/1.25 var(--font-heading); max-width: 30ch; margin-bottom: var(--space-3); }
 
-/* Редакционно съдържание: биография, таблица, домове и учебна програма. */
-.section { max-width: 1160px; margin: 0 auto; padding: 105px 6%; border-bottom: 1px solid var(--line); }
-.section-heading { max-width: 800px; margin-bottom: 42px; }
-.section-heading .eyebrow { margin-bottom: 24px; }
-.intro { color: #d1cabb; max-width: 680px; font-size: clamp(18px, 2vw, 23px); line-height: 1.65; }
-.columns { column-count: 2; column-gap: 48px; column-rule: 1px solid var(--line); color: var(--muted); font-size: 17px; }
-.columns p { margin: 0 0 20px; }
-table { width: 100%; border-collapse: collapse; margin-top: 50px; text-align: left; font-size: 15px; }
-caption { text-align: left; color: var(--gold); font-family: var(--serif); font-size: 23px; margin-bottom: 20px; }
-th, td { padding: 16px 12px; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
-th { width: 35%; padding-left: 0; font-weight: 400; color: var(--gold); }
+/* Историята и таблицата са истински текст и семантичен училищен архив. */
+.columns { column-count: 2; column-gap: var(--space-6); color: var(--muted); font-size: 17px; }
+.columns p { margin: 0 0 var(--space-3); }
+.archive-record { margin-top: var(--space-5); padding-top: var(--space-4); border-top: var(--border); }
+.archive-record > .eyebrow { margin-bottom: var(--space-2); }
+table { width: 100%; border-collapse: collapse; text-align: left; font-size: 15px; }
+caption { text-align: left; font: 26px/1.3 var(--font-heading); color: var(--ivory); margin-bottom: var(--space-3); }
+th, td { padding: 16px 12px; border-bottom: var(--border); overflow-wrap: anywhere; }
+th { width: 35%; padding-left: 0; color: var(--gold); font-weight: 400; }
 td { color: var(--muted); }
-.houses { display: grid; grid-template-columns: 1fr 1fr; gap: 0 50px; margin: 12px 0 22px; }
-.house { position: relative; display: flex; align-items: center; gap: 24px; padding: 35px 0; border-top: 1px solid var(--line); }
-.house-number { position: absolute; right: 0; top: 12px; color: #a3957b; font-size: 10px; }
-.house img { width: 90px; height: 110px; object-fit: contain; flex-shrink: 0; opacity: .9; }
-.house h3 { margin: 4px 0 12px; }
-.house p { margin-bottom: 8px; font-size: 14px; }
-.house .house-name { margin: 0; font-size: 9px; letter-spacing: .18em; color: var(--house-color); }
-.house .founder { font-size: 12px; color: var(--muted); }
-.red { --house-color: #e3a79a; }
-.green { --house-color: #9ec5ad; }
-.blue { --house-color: #a7bed9; }
-.yellow { --house-color: #e2c37d; }
-.study { display: grid; grid-template-columns: 1fr 1fr; gap: 55px; }
-.study > div { border-top: 1px solid var(--line); padding-top: 30px; }
-.study h3 { margin-bottom: 28px; }
-.study ul, .study ol { padding-left: 22px; color: var(--muted); }
-.study li { padding-left: 10px; margin: 14px 0; }
-.study li::marker { color: var(--gold); }
-.sorting { text-align: center; border-bottom: 0; background: radial-gradient(ellipse at center, #17233366, transparent 65%); }
-.sorting h2 { margin-top: 25px; }
-.sorting .intro { margin-inline: auto; font-size: 18px; }
-.sorting-hat { width: 130px; height: 145px; object-fit: contain; margin: 25px auto; }
-.quiz { max-width: 680px; margin: 0 auto; }
-#quiz-step { color: var(--gold); font-size: 11px; letter-spacing: .15em; }
-.quiz-progress { height: 2px; width: 90px; background: var(--line); margin: 20px auto 30px; }
-#quiz-progress { display: block; width: 0; height: 100%; background: var(--gold); }
-#quiz-question { min-height: 70px; margin-bottom: 22px; font-size: clamp(24px, 3vw, 32px); }
-.choices { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.choices button { min-height: 62px; padding: 12px 18px; border: 1px solid #d9bd834d; background: #0c1620; color: var(--paper); font-size: 15px; transition: border-color .2s, background .2s; }
-.choices button:hover { border-color: var(--gold); background: #1d2832; }
-#result { color: var(--gold); font-size: clamp(22px, 3vw, 30px); margin: 24px 0; }
-#result:empty { display: none; }
-.quiz-note { margin: 35px 0 0; color: var(--muted); font-size: 12px; }
-footer { border-top: 1px solid var(--line); text-align: center; padding: 60px 6% 30px; color: var(--muted); font-size: 12px; }
-footer .brand { display: inline-block; margin-bottom: 25px; }
-.footer-title { font-family: var(--serif); font-size: 24px; color: var(--paper); font-style: italic; }
-footer nav { margin: 24px 0; gap: 24px; }
-.footer-credit { font-size: 11px; max-width: 630px; margin: 0 auto; }
 
-@media (min-width: 1600px) { .scene-copy { left: calc((100vw - 1340px) / 2); } }
-@media (max-width: 850px) {
-  .site-header { flex-direction: column; gap: 6px; padding: 12px 5%; }
-  nav { gap: 20px; }
-  .scene-copy { left: 6%; }
-  .cinematic-ready .cinematic-controls { left: 6%; right: 6%; }
-  .scroll-hint { display: none; }
-  .houses { gap: 0 25px; }
-  .house { gap: 14px; }
-  .house img { width: 65px; }
+/* Пълните знамена: естествено съотношение 2:3, без crop, zoom или карти. */
+.houses-chapter { padding-top: var(--space-5); }
+.houses { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(20px, 3vw, 40px); margin-bottom: var(--space-4); }
+.house { min-width: 0; text-align: center; }
+.house figure { margin-bottom: var(--space-3); }
+.house img { width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: contain; transition: filter var(--duration-reveal) var(--ease); }
+.artifact-label { color: var(--gold); font-size: 9px; letter-spacing: .16em; padding-top: var(--space-3); }
+.house h3 { font-size: clamp(22px, 2.05vw, 29px); margin-bottom: var(--space-1); }
+.founder { min-height: 2.8em; font-size: 13px; color: var(--muted); margin-bottom: var(--space-1); }
+.house-values { min-height: 3em; font-size: 15px; color: var(--ivory); margin-bottom: var(--space-2); }
+.house-description { font-size: 14px; line-height: 1.7; color: var(--muted); margin-bottom: 0; transition: color var(--duration-fast) var(--ease); }
+.house:hover img, .house:focus-visible img { filter: brightness(1.08); }
+.house:hover .house-description, .house:focus-visible .house-description { color: var(--ivory); }
+
+.education-chapter { display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--space-6); align-items: center; }
+.library-image img { width: 100%; height: auto; }
+.education-copy h2 { font-size: clamp(38px, 4.5vw, 62px); }
+.education-copy .section-note { margin-bottom: var(--space-4); }
+.study { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+.study > div { padding-top: var(--space-3); border-top: var(--border); }
+.study h3 { font-size: 23px; line-height: 1.25; min-height: 2.5em; margin-bottom: var(--space-3); }
+.study ul, .study ol { padding-left: 18px; margin: 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
+.study li { padding-left: 4px; margin-bottom: 12px; }
+.study li::marker { color: var(--gold); }
+
+/* Финалът използва фотографията и спокойни текстови избори. */
+.ceremony-layout { display: grid; grid-template-columns: 1.05fr 1fr; gap: var(--space-6); align-items: start; }
+.ceremony-content { min-width: 0; }
+.quiz { padding-top: 4px; }
+#quiz-step { color: var(--gold); font-size: 10px; letter-spacing: .16em; margin-bottom: var(--space-2); }
+.quiz-progress { height: 1px; width: 100%; background: var(--line); margin-bottom: var(--space-4); }
+#quiz-progress { display: block; width: 0; height: 100%; background: var(--gold); transition: width var(--duration-fast) var(--ease); }
+#quiz-question { font-size: clamp(25px, 2.5vw, 34px); min-height: 2.5em; margin-bottom: var(--space-3); }
+.choices { border-top: var(--border); }
+.choices button { width: 100%; min-height: 60px; display: flex; align-items: center; gap: var(--space-3); padding: 12px 0; background: transparent; color: var(--ivory); border: 0; border-bottom: var(--border); text-align: left; font-size: 16px; line-height: 1.5; transition: color var(--duration-fast) var(--ease), border-color var(--duration-fast) var(--ease); }
+.answer-index { color: var(--gold); font: 10px var(--font-label); letter-spacing: .1em; min-width: 18px; }
+.choices button::after { content: '↗'; margin-left: auto; color: var(--gold); }
+.choices button:hover { color: var(--gold); border-bottom-color: var(--gold); }
+.quiz-note { color: var(--muted); font-size: 10px; line-height: 1.7; margin-top: var(--space-4); margin-bottom: 0; }
+.quiz-result { --result-accent: var(--gold); animation: result-reveal var(--duration-reveal) var(--ease) both; }
+.quiz-result > h3 { color: var(--result-accent); margin-bottom: var(--space-2); }
+#result-summary { color: var(--ivory); margin-bottom: var(--space-4); font-size: 17px; }
+.result-houses { display: grid; gap: var(--space-3); }
+.result-house { display: grid; grid-template-columns: 110px minmax(0, 1fr); align-items: center; gap: var(--space-3); border-top: var(--border); padding-top: var(--space-3); }
+.result-house img { width: 110px; height: auto; aspect-ratio: 2 / 3; object-fit: contain; }
+.result-house h4 { color: var(--house-accent); font-size: 25px; margin-bottom: var(--space-1); }
+.result-house .result-values { font-size: 14px; color: var(--ivory); margin-bottom: var(--space-2); }
+.result-house .result-description { font-size: 14px; color: var(--muted); line-height: 1.65; margin-bottom: 0; }
+#quiz-reset { margin-top: var(--space-4); }
+@keyframes result-reveal { from { opacity: 0; } to { opacity: 1; } }
+
+/* Ограничена златна следа; родният курсор и всички кликове се запазват. */
+.trail { position: fixed; z-index: 30; pointer-events: none; border-radius: 50%; background: var(--particle-color); box-shadow: 0 0 6px var(--particle-color); animation: glitter-fade 700ms ease-out forwards; }
+@keyframes glitter-fade { from { opacity: .65; } to { opacity: 0; transform: translateY(12px); } }
+footer { width: min(var(--content-width), calc(100% - 2 * var(--gutter))); margin: 0 auto; border-top: var(--border); padding: var(--space-6) 0 var(--space-4); text-align: center; color: var(--muted); font-size: 12px; }
+footer .brand { display: inline-block; margin-bottom: var(--space-3); }
+.footer-title { font: italic 26px/1.3 var(--font-heading); color: var(--ivory); margin-bottom: var(--space-3); }
+footer nav { margin-block: var(--space-3); }
+
+@media (max-width: 1000px) {
+  :root { --space-6: 3rem; }
+  .site-header { gap: var(--space-3); }
+  nav { gap: 18px; }
+  .invitation { grid-template-columns: .9fr 1.1fr; gap: var(--space-4); }
+  .education-chapter { grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+  .study { grid-template-columns: 1fr; gap: var(--space-3); }
+  .study h3 { min-height: 0; margin-bottom: var(--space-2); }
+  .study ul, .study ol { font-size: 15px; }
+  .houses { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5) var(--space-4); }
+  .house img { max-width: 260px; margin-inline: auto; }
+  .house-description { max-width: 32ch; margin-inline: auto; }
+  .house-values { min-height: 0; }
 }
-@media (max-width: 600px) {
-  :root { --header-height: 96px; }
-  .site-header { padding-inline: 12px; }
-  .site-header nav { gap: 6px 14px; font-size: 11px; }
+@media (max-width: 760px) {
+  :root { --header-height: 100px; --section-space: 72px; }
+  .site-header { flex-direction: column; gap: 0; padding: 10px 12px 2px; }
   .brand { font-size: 13px; }
-  .invitation { padding-top: 35px; }
-  .invitation h1 { font-size: clamp(60px, 17vw, 88px); }
-  .invitation-intro { font-size: 14px; }
-  .envelope-stage { width: min(360px, 100%); }
-  .letter { padding: 18px 14px 12px; }
-  .letter p { font-size: 14px; }
-  .scene-copy { bottom: 20%; padding-right: 20px; }
-  .scene-copy h2 { font-size: clamp(42px, 11vw, 68px); }
-  .scene-copy .eyebrow { font-size: 9px; margin-bottom: 18px; }
-  .scene-subtitle { max-width: 290px; font-size: 15px; }
-  .scene::after { background: linear-gradient(0deg, #050b13ed, #050b1359 70%, #050b1326); }
-  .scene-markers { gap: 17px; }
-  .cinematic-controls .text-link span { margin-left: 8px; }
-  .section { padding: 70px 6%; }
+  .site-header nav { gap: 14px; font-size: 11px; }
+  .opening-image { object-position: 65% center; }
+  .opening-copy { padding-bottom: 135px; }
+  .opening h1 { font-size: clamp(62px, 14vw, 106px); }
+  .opening-copy .eyebrow { font-size: 9px; max-width: 30ch; }
+  .opening-footer { align-items: start; flex-direction: column; gap: 4px; bottom: var(--space-2); }
+  .opening-index { font-size: 8px; }
+  .opening-footer .text-link { font-size: 12px; }
+  .invitation, .editorial-split, .education-chapter, .ceremony-layout, .chapter-introduction { grid-template-columns: 1fr; gap: var(--space-4); }
+  .invitation-copy .section-note { margin-top: var(--space-3); }
+  .invitation-visual { min-width: 0; }
+  .invitation-photo { align-self: start; }
+  .letter { padding: 24px; }
+  .letter h3 { font-size: 34px; margin-bottom: 16px; }
+  .letter p { margin-bottom: 16px; line-height: 1.55; }
+  .letter-footer { flex-wrap: wrap; }
+  .chapter-introduction > .intro { max-width: 46ch; }
+  .train-image { margin-bottom: var(--space-5); }
+  .entrance-copy > p:not(.eyebrow) { max-width: 42ch; }
+  .entrance-copy h3 br { display: none; }
+  .hall-interlude { min-height: 60svh; }
+  .hall-interlude > img { object-position: 54% center; }
+  .hall-interlude figcaption { padding-block: var(--space-5); }
+  .hall-quote { font-size: clamp(28px, 5.5vw, 40px); }
   .columns { column-count: 1; font-size: 16px; }
-  .houses, .study { grid-template-columns: 1fr; gap: 0; }
-  .house { gap: 28px; }
-  .house img { width: 80px; }
-  .study > div + div { margin-top: 25px; }
-  th, td { padding: 13px 8px; font-size: 13px; }
+  th, td { padding: 14px 8px; font-size: 14px; }
   th { width: 40%; padding-left: 0; }
-  .choices { grid-template-columns: 1fr; }
-  .choices button { min-height: 54px; }
-  #quiz-question { min-height: 78px; }
-  .candles i:nth-child(even) { display: none; }
+  .houses-chapter { padding-top: var(--space-4); }
+  .houses { gap: var(--space-5) 20px; }
+  .house h3 { font-size: 23px; }
+  .house .founder { font-size: 12px; }
+  .house-values { font-size: 14px; min-height: 3em; }
+  .artifact-label { font-size: 8px; letter-spacing: .12em; }
+  .library-image { order: 2; }
+  .education-copy { order: 1; }
+  .study { grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+  .study h3 { font-size: 22px; min-height: 2.5em; }
+  .study ul, .study ol { font-size: 14px; }
+  .ceremony-content { margin-top: var(--space-2); }
+  #quiz-question { min-height: 0; }
+  .quiz-note { font-size: 11px; }
 }
-@media (max-height: 520px) and (min-width: 601px) {
-  .scene-copy { bottom: 22%; }
-  .scene-copy h2 { font-size: 42px; margin-bottom: 12px; }
-  .scene-copy .eyebrow { margin-bottom: 12px; }
-  .scene-subtitle { font-size: 14px; }
+@media (max-width: 440px) {
+  .site-header nav { gap: 11px; }
+  .brand { letter-spacing: .16em; }
+  .intro { font-size: 17px; }
+  .photo-caption { font-size: 8px; letter-spacing: .08em; }
+  .house h3 { font-size: 20px; }
+  .house-description { font-size: 13px; }
+  .study { grid-template-columns: 1fr; }
+  .study h3 { min-height: 0; }
+  .study ul, .study ol { font-size: 15px; }
+  .result-house { grid-template-columns: 88px minmax(0, 1fr); gap: var(--space-2); }
+  .result-house img { width: 88px; }
+  .result-house h4 { font-size: 23px; }
+  .result-house .result-description { font-size: 13px; }
+  .footer-title { font-size: 23px; }
 }
-/* Ако браузърът не поддържа sticky, остава статичното представяне. */
-@supports not (position: sticky) {
-  .cinematic-ready .journey { height: auto; }
-  .cinematic-ready .cinematic-viewport { position: relative; height: auto; overflow: visible; }
-  .cinematic-ready .scene { position: relative; min-height: max(280px, calc(100svh - var(--header-height))); opacity: 1 !important; }
-  .cinematic-controls { display: none !important; }
+@media (max-width: 359px) {
+  .site-header nav { font-size: 10px; gap: 10px; }
+  .opening h1 { font-size: 57px; }
+  .houses { grid-template-columns: 1fr; }
+  .house img { max-width: 230px; }
+  .house h3 { font-size: 27px; }
+  .house-values, .founder { min-height: 0; }
+  .house-description { max-width: 34ch; font-size: 14px; }
 }
-/* Намаленото движение показва ВСИЧКИ сцени, без sticky или частици. */
+@media (max-height: 520px) and (min-width: 761px) {
+  .opening-copy { padding-top: var(--space-4); padding-bottom: 100px; }
+  .opening h1 { font-size: 80px; }
+  .opening-subtitle { font-size: 28px; }
+  .opening-copy .eyebrow { margin-bottom: var(--space-1); }
+  .opening-index { display: none; }
+}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
-  .cinematic-ready .journey { height: auto; }
-  .cinematic-ready .cinematic-viewport { position: relative; height: auto; overflow: visible; }
-  .cinematic-ready .scene { position: relative; min-height: max(280px, calc(100svh - var(--header-height))); opacity: 1 !important; }
-  .mist, #sparkles, .candles, .trail, .cinematic-controls { display: none !important; }
+  .trail { display: none; }
 }
 @media (hover: none), (pointer: coarse) { .trail { display: none; } }
