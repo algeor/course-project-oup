@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0B1118">
+  <meta name="description" content="Четирите дома на Хогуортс — Грифиндор, Слидерин, Рейвънклоу и Хафълпаф.">
+  <title>Домове — Hogwarts</title>
+  <link rel="icon" href="assets/hat.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Към съдържанието</a>
+  <div id="progress" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Хогуортс — начало"><span aria-hidden="true">✦</span> HOGWARTS</a>
+    <nav aria-label="Основна навигация">
+      <a href="journey.html">Пътешествие</a>
+      <a href="history.html">История</a>
+      <a href="houses.html" aria-current="page">Домове</a>
+      <a href="study.html">Обучение</a>
+      <a href="sorting.html">Шапката</a>
+    </nav>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <section class="section houses-chapter" id="houses" aria-labelledby="houses-title">
+      <div class="houses-heading">
+        <div>
+          <p class="eyebrow" lang="en">04 / THE FOUR HOUSES</p>
+          <h1 id="houses-title">Четири дома.<br><em>Един Хогуортс.</em></h1>
+        </div>
+        <div class="houses-intro">
+          <p class="intro">Различни ценности, споделена история.<br>Къде ще откриеш своето място?</p>
+          <a class="text-link action-link houses-quiz-link" href="sorting.html"><span>Открий своя дом</span><img src="assets/hat.svg" width="36" height="24" alt="" aria-hidden="true"></a>
+        </div>
+      </div>
+      <div class="houses">
+        <article class="house" tabindex="0" aria-labelledby="gryffindor-title">
+          <h2 class="subheading" id="gryffindor-title">Грифиндор</h2>
+          <p class="founder">Годрик Грифиндор</p>
+          <figure><img src="assets/houses/gryffindor.webp" width="1024" height="1536" alt="Цяло бордо кадифено знаме на Грифиндор със златен бродиран лъв, декоративна пръчка и ресни." loading="eager" fetchpriority="high" decoding="async"><figcaption class="artifact-label" lang="en">I / GRYFFINDOR</figcaption></figure>
+          <p class="house-values">Смелост и решителност</p>
+          <p class="house-description">Домът на онези, които намират смелост да постъпят правилно дори когато е трудно.</p>
+        </article>
+        <article class="house" tabindex="0" aria-labelledby="slytherin-title">
+          <h2 class="subheading" id="slytherin-title">Слидерин</h2>
+          <p class="founder">Салазар Слидерин</p>
+          <figure><img src="assets/houses/slytherin.webp" width="1024" height="1536" alt="Цяло изумрудено кадифено знаме на Слидерин със сребърна бродирана змия, декоративна пръчка и ресни." loading="lazy" decoding="async"><figcaption class="artifact-label" lang="en">II / SLYTHERIN</figcaption></figure>
+          <p class="house-values">Амбиция и находчивост</p>
+          <p class="house-description">Домът на целеустремените, които виждат възможности и търсят свой път към успеха.</p>
+        </article>
+        <article class="house" tabindex="0" aria-labelledby="ravenclaw-title">
+          <h2 class="subheading" id="ravenclaw-title">Рейвънклоу</h2>
+          <p class="founder">Роуина Рейвънклоу</p>
+          <figure><img src="assets/houses/ravenclaw.webp" width="1024" height="1536" alt="Цяло тъмносиньо кадифено знаме на Рейвънклоу с бронзов бродиран орел, декоративна пръчка и ресни." loading="lazy" decoding="async"><figcaption class="artifact-label" lang="en">III / RAVENCLAW</figcaption></figure>
+          <p class="house-values">Мъдрост и любознателност</p>
+          <p class="house-description">Домът на любопитните умове, за които всеки въпрос е начало на ново откритие.</p>
+        </article>
+        <article class="house" tabindex="0" aria-labelledby="hufflepuff-title">
+          <h2 class="subheading" id="hufflepuff-title">Хафълпаф</h2>
+          <p class="founder">Хелга Хафълпаф</p>
+          <figure><img src="assets/houses/hufflepuff.webp" width="1024" height="1536" alt="Цяло златно кадифено знаме на Хафълпаф с бродиран язовец, декоративна пръчка и ресни." loading="lazy" decoding="async"><figcaption class="artifact-label" lang="en">IV / HUFFLEPUFF</figcaption></figure>
+          <p class="house-values">Лоялност и трудолюбие</p>
+          <p class="house-description">Домът на верните приятели, които ценят честността, търпението и общите усилия.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="index.html"><span aria-hidden="true">✦</span> HOGWARTS</a>
+    <p class="footer-title" lang="en">Every story begins with a little magic.</p>
+    <p>Учебен проект · HTML, CSS и JavaScript · Неофициална фен страница</p>
+    <nav aria-label="Източници и информация за проекта"><a href="https://www.harrypotter.com/" target="_blank" rel="noopener noreferrer">Harry Potter</a><a href="https://github.com/algeor/course-project-oup" target="_blank" rel="noopener noreferrer">Код на проекта</a></nav>
+  </footer>
+</body>
+</html>

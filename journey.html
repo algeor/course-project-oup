@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0B1118">
+  <meta name="description" content="Пътешествието до Хогуортс — експресът, портите на замъка и Голямата зала.">
+  <title>Пътешествие — Hogwarts</title>
+  <link rel="icon" href="assets/hat.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Към съдържанието</a>
+  <div id="progress" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Хогуортс — начало"><span aria-hidden="true">✦</span> HOGWARTS</a>
+    <nav aria-label="Основна навигация">
+      <a href="journey.html" aria-current="page">Пътешествие</a>
+      <a href="history.html">История</a>
+      <a href="houses.html">Домове</a>
+      <a href="study.html">Обучение</a>
+      <a href="sorting.html">Шапката</a>
+    </nav>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <section class="section journey-chapter" id="journey" aria-labelledby="journey-title">
+      <span class="chapter-ornament" aria-hidden="true"><img src="assets/editorial/chapter-ornament.svg" width="240" height="44" alt=""></span>
+      <div class="journey-heading">
+        <p class="eyebrow" lang="en">02 / THE JOURNEY</p>
+        <h1 id="journey-title">Отвъд <em>познатото.</em></h1>
+      </div>
+      <ol class="journey-stops" role="list">
+        <li class="journey-stop">
+          <div class="journey-copy">
+            <p class="eyebrow" lang="en">02.1 / HOGWARTS EXPRESS</p>
+            <h2 class="subheading">Хогуортс<br><em>Експрес.</em></h2>
+            <p>Пътят към Хогуортс започва с едно необикновено пътуване през шотландските планини.</p>
+          </div>
+          <img class="journey-image" src="assets/scenes/journey.webp" width="1672" height="941" alt="Парен влак пресича каменен виадукт над езеро сред шотландските планини по залез." loading="eager" fetchpriority="high" decoding="async">
+        </li>
+        <li class="journey-stop">
+          <div class="journey-copy">
+            <p class="eyebrow" lang="en">02.2 / THE THRESHOLD</p>
+            <h2 class="subheading">През<br><em>портите.</em></h2>
+            <p>От брега на езерото до старинните порти, всяка крачка разкрива нова част от света на магията.</p>
+          </div>
+          <img class="journey-image" src="assets/scenes/entrance.webp" width="1672" height="941" alt="Отворени дървени порти на готически замък разкриват топло осветен коридор в нощта." loading="lazy" decoding="async">
+        </li>
+        <li class="journey-stop">
+          <div class="journey-copy">
+            <p class="eyebrow" lang="en">02.3 / THE GREAT HALL</p>
+            <h2 class="subheading">Голямата<br><em>зала.</em></h2>
+            <p>Тук започва една история, която продължава векове.</p>
+            <a class="text-link" href="history.html">Историята на Хогуортс <span aria-hidden="true">↗</span></a>
+          </div>
+          <img class="journey-image" src="assets/scenes/great-hall.webp" width="1672" height="941" alt="Голямата зала с дълги маси, плаващи свещи, знамена на четирите дома и звезден таван." loading="lazy" decoding="async">
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="index.html"><span aria-hidden="true">✦</span> HOGWARTS</a>
+    <p class="footer-title" lang="en">Every story begins with a little magic.</p>
+    <p>Учебен проект · HTML, CSS и JavaScript · Неофициална фен страница</p>
+    <nav aria-label="Източници и информация за проекта"><a href="https://www.harrypotter.com/" target="_blank" rel="noopener noreferrer">Harry Potter</a><a href="https://github.com/algeor/course-project-oup" target="_blank" rel="noopener noreferrer">Код на проекта</a></nav>
+  </footer>
+</body>
+</html>
