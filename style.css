@@ -391,3 +391,53 @@ footer nav { margin: 24px 0; gap: 24px; }
   .mist, #sparkles, .candles, .trail, .cinematic-controls { display: none !important; }
 }
 @media (hover: none), (pointer: coarse) { .trail { display: none; } }
+
+/* V5: editorial layout. Natural scrolling, full-bleed photography, one chapter rhythm. */
+:root{--night:#0b1118;--paper:#ebe0ca;--gold:#c9ad78;--muted:#b5b8bc;--line:#c9ad7833;--header-height:76px;--chapter-width:1120px}
+body{background:var(--night)}
+.site-header{background:#0b1118f5}
+.opening{position:relative;min-height:calc(100svh - var(--header-height));display:grid;place-items:center;text-align:center;isolation:isolate;overflow:hidden}
+.opening>img,.hall-interlude>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.opening:before,.hall-interlude:before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,#0b1118 0%,#0b111822 38%,#0b111855 80%),radial-gradient(ellipse at 50% 52%,#05090fa8,transparent 70%)}
+.opening-copy{padding:80px 20px 100px;text-shadow:0 2px 24px #0009}
+.opening h1{font-size:clamp(65px,13vw,166px);letter-spacing:.035em;line-height:1;margin:12px 0;color:var(--paper)}
+.opening-subtitle{font:italic clamp(23px,4vw,46px) var(--serif);color:var(--gold);margin:12px 0}
+.opening-copy>p:not(.eyebrow):not(.opening-subtitle){font-size:16px}
+.opening-index{position:absolute;bottom:26px;left:6%;font:10px Arial,sans-serif;letter-spacing:.22em;color:var(--gold)}
+main>.section,main>.invitation{width:min(var(--chapter-width),90%);max-width:none;margin-inline:auto;padding:clamp(70px,11vw,150px) 0;border-bottom:1px solid var(--line)}
+.section-heading{max-width:740px;margin-bottom:42px}
+.section-heading h2,.invitation h2{font-size:clamp(37px,6vw,78px);letter-spacing:-.035em;line-height:1.05}
+.section-heading .intro{max-width:58ch;color:var(--muted);font-size:clamp(16px,1.8vw,21px)}
+.invitation{min-height:0;background:none;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto auto auto;align-items:center;column-gap:70px;text-align:left}
+.invitation>.eyebrow{grid-column:1;grid-row:1;align-self:end;margin:0 0 20px}
+.invitation h2{grid-column:1;grid-row:2;align-self:start;margin:0}
+.invitation-intro{grid-column:1;grid-row:3;align-self:start;margin:20px 0 0;font-size:18px}
+.envelope-stage{grid-column:2;grid-row:1/4;width:min(400px,100%);height:375px;align-self:center;text-align:center}
+.letter-hint{grid-column:2;grid-row:4;text-align:center;margin:16px 0 0}
+.editorial-image{margin:0}
+.editorial-image img{width:100%;height:auto;display:block}
+.editorial-image figcaption{display:flex;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid var(--line);font:11px Arial,sans-serif;letter-spacing:.12em;color:var(--gold)}
+.editorial-split{display:grid;grid-template-columns:1fr 1.45fr;gap:clamp(25px,6vw,85px);align-items:center;margin-top:clamp(45px,8vw,100px)}
+.editorial-split h3{font-size:clamp(30px,4vw,52px);margin-bottom:20px}
+.editorial-split p:not(.eyebrow){color:var(--muted);max-width:32ch}
+.hall-interlude{position:relative;isolation:isolate;margin:0;min-height:70svh;display:grid;place-items:center;text-align:center;overflow:hidden}
+.hall-interlude:before{background:linear-gradient(0deg,#0b1118 0%,transparent 30%,#0b1118 100%),radial-gradient(ellipse at center,#05090fa8,transparent 70%)}
+.hall-interlude figcaption{padding:70px 20px;max-width:800px;text-shadow:0 2px 20px #000}
+.hall-interlude figcaption>p:not(.eyebrow){font:italic clamp(25px,4.8vw,55px)/1.2 var(--serif);margin:24px 0}
+.history table{margin-top:52px}
+.houses{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.house{background:none!important;border:0;border-right:1px solid var(--line);border-radius:0;box-shadow:none;min-width:0;text-align:center;padding:30px 12px;display:flex;flex-direction:column;align-items:center}
+.house:last-child{border-right:0}.house:after{display:none}.house:hover{transform:none}
+.house img{width:92px;height:105px;object-fit:contain;margin:12px auto 20px}
+.house h3{font-size:clamp(18px,2vw,26px)}
+.house .house-name{font-size:10px;letter-spacing:.12em}
+.house-number{position:static;align-self:flex-start;color:var(--gold)}
+.study{gap:clamp(24px,5vw,65px)}
+.study>div{background:transparent;border:0;border-top:1px solid var(--line);border-radius:0;padding:28px 0}
+.sorting{background:none!important;text-align:center}
+.sorting .intro{margin-inline:auto}
+.sorting-hat{width:120px;height:auto;margin:0 auto 25px}
+.quiz{margin-inline:auto;max-width:680px}
+footer{padding:80px 20px;border-top:0}
+@media(max-width:760px){main>.section,main>.invitation{width:88%;padding:65px 0}.invitation{display:flex;flex-direction:column;align-items:stretch;text-align:center;gap:16px}.invitation-intro{margin:0}.envelope-stage{margin:0 auto}.letter-hint{margin:0}.editorial-split{grid-template-columns:1fr;gap:20px}.editorial-split p:not(.eyebrow){max-width:none}.houses{grid-template-columns:repeat(2,minmax(0,1fr))}.house:nth-child(2){border-right:0}.house:nth-child(-n+2){border-bottom:1px solid var(--line)}.opening-index{font-size:9px}.hall-interlude{min-height:55svh}}
+@media(prefers-reduced-motion:reduce){.opening,.hall-interlude{min-height:60vh}html{scroll-behavior:auto}}

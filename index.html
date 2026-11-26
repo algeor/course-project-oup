@@ -7,7 +7,7 @@
   <meta name="description" content="Интерактивна биография на Хогуортс — история, четири дома, магическо образование и Разпределителната шапка.">
   <title>Hogwarts — Beyond the Castle</title>
   <link rel="icon" href="assets/hat.svg" type="image/svg+xml">
-  <link rel="preload" as="image" href="assets/scenes/journey.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/scenes/arrival.webp" fetchpriority="high">
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
@@ -15,9 +15,9 @@
   <a class="skip-link" href="#history">Към съдържанието</a>
   <div id="progress" aria-hidden="true"></div>
   <header class="site-header">
-    <a class="brand" href="#invitation" aria-label="Хогуортс — начало"><span aria-hidden="true">✦</span> HOGWARTS</a>
+    <a class="brand" href="#home" aria-label="Хогуортс — начало"><span aria-hidden="true">✦</span> HOGWARTS</a>
     <nav aria-label="Основна навигация">
-      <a href="#home">Пътешествие</a>
+      <a href="#journey">Пътешествие</a>
       <a href="#history">История</a>
       <a href="#houses">Домове</a>
       <a href="#study">Обучение</a>
@@ -26,10 +26,15 @@
   </header>
 
   <main>
+    <section class="opening" id="home" aria-labelledby="page-title">
+      <img src="assets/scenes/arrival.webp" alt="Готически замък, осветен от златисти прозорци, край спокойно езеро по здрач." width="1672" height="941" fetchpriority="high">
+      <div class="opening-copy"><p class="eyebrow" lang="en">EST. CIRCA 990 · SCOTLAND</p><h1 id="page-title">Hogwarts</h1><p class="opening-subtitle" lang="en">Beyond the Castle</p><p>Училище за магия и вълшебство</p><a class="text-link" href="#invitation">Открий историята <span aria-hidden="true">↓</span></a></div>
+      <div class="opening-index" aria-hidden="true">01 — 06 &nbsp; / &nbsp; A MAGICAL CHRONICLE</div>
+    </section>
     <section class="invitation" id="invitation" aria-labelledby="invitation-title">
-      <p class="eyebrow" lang="en">THE INVITATION</p>
-      <h1 id="invitation-title">Hogwarts</h1>
-      <p class="invitation-subtitle" lang="en">School of Witchcraft &amp; Wizardry</p>
+      <p class="eyebrow" lang="en">01 / THE INVITATION</p>
+      <h2 id="invitation-title">Твоята история <em>започва тук.</em></h2>
+      
       <p class="invitation-intro">Някои истории започват с писмо.<br>Твоята те очаква.</p>
       <div class="envelope-stage">
         <!-- Писмото е отворено по подразбиране, за да се чете и без JavaScript. -->
@@ -38,7 +43,7 @@
             <p class="letter-heading">Хогуортс</p>
             <p class="letter-address">Уважаеми бъдещ ученико,</p>
             <p>Имаме удоволствието да Ви поканим да откриете света на магията.</p>
-            <a class="letter-link" href="#home">Приемам поканата <span aria-hidden="true">↗</span></a>
+            <a class="letter-link" href="#journey">Приемам поканата <span aria-hidden="true">↗</span></a>
             <p class="letter-signature">Училище за магия и вълшебство</p>
           </div>
           <div class="envelope-front" aria-hidden="true"></div>
@@ -47,59 +52,18 @@
         </div>
       </div>
       <p class="letter-hint" id="letter-hint" aria-live="polite">Добре дошли в света на магията!</p>
-      <a class="text-link invitation-skip" href="#home">Към пътешествието <span aria-hidden="true">↓</span></a>
+      
     </section>
-
-    <!-- Без анимации сцените са четири обикновени, достъпни секции. -->
-    <section class="journey" id="home" aria-label="Кинематографично пътешествие към Хогуортс">
-      <div class="cinematic-viewport">
-        <section class="scene" id="journey-scene" aria-labelledby="journey-title">
-          <img class="scene-image" src="assets/scenes/journey.webp" width="1672" height="941" alt="Парен влак пресича каменен виадукт сред шотландски планини и езеро по залез." fetchpriority="high" decoding="async">
-          <div class="scene-copy">
-            <p class="eyebrow" lang="en">ACT I · THE JOURNEY</p>
-            <h2 id="journey-title" lang="en">The Journey<br>Begins</h2>
-            <p class="scene-subtitle" lang="en">Every extraordinary adventure begins with a single step.</p>
-          </div>
-        </section>
-        <section class="scene" id="arrival-scene" aria-labelledby="arrival-title">
-          <img class="scene-image" src="assets/scenes/arrival.webp" width="1672" height="941" alt="Осветен готически замък се отразява в спокойно езеро, до лодки и фенери по здрач." loading="eager" decoding="async">
-          <div class="scene-copy">
-            <p class="eyebrow" lang="en">ACT II · THE ARRIVAL</p>
-            <h2 id="arrival-title" lang="en">Beyond<br>the Castle</h2>
-            <p class="scene-subtitle" lang="en">A thousand years of magic await.</p>
-          </div>
-        </section>
-        <section class="scene" id="entrance-scene" aria-labelledby="entrance-title">
-          <img class="scene-image" src="assets/scenes/entrance.webp" width="1672" height="941" alt="Отворени дървени порти на готически замък разкриват топло осветен коридор в нощта." loading="eager" decoding="async">
-          <div class="scene-copy">
-            <p class="eyebrow" lang="en">ACT III · THE ENTRANCE</p>
-            <h2 id="entrance-title" lang="en">Enter<br>the Unknown</h2>
-            <p class="scene-subtitle" lang="en">A world unlike any other lies beyond these doors.</p>
-          </div>
-        </section>
-        <section class="scene" id="great-hall-scene" aria-labelledby="great-hall-title">
-          <img class="scene-image" src="assets/scenes/great-hall.webp" width="1672" height="941" alt="Голямата зала с дълги маси, знамена на четирите дома, плаващи свещи и звезден таван." loading="eager" decoding="async">
-          <div class="candles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-          <div class="scene-copy">
-            <p class="eyebrow" lang="en">ACT IV · THE GREAT HALL</p>
-            <h2 id="great-hall-title" lang="en">Where Magic<br>Comes Alive</h2>
-            <p class="scene-subtitle" lang="en">Four houses. Countless stories. One extraordinary school.</p>
-          </div>
-        </section>
-        <div class="mist" aria-hidden="true"></div>
-        <div id="sparkles" aria-hidden="true"></div>
-        <div class="cinematic-controls">
-          <p class="scroll-hint" lang="en">SCROLL TO DISCOVER <span aria-hidden="true">↓</span></p>
-          <ol class="scene-markers" aria-hidden="true"><li class="active">I</li><li>II</li><li>III</li><li>IV</li></ol>
-          <a class="text-link" href="#history">Към историята <span aria-hidden="true">↗</span></a>
-        </div>
-      </div>
+    <section class="section journey-chapter" id="journey" aria-labelledby="journey-title">
+      <div class="section-heading"><p class="eyebrow" lang="en">02 / THE JOURNEY</p><h2 id="journey-title">Отвъд <em>познатото.</em></h2><p class="intro">Пътят към Хогуортс започва с едно необикновено пътуване през шотландските планини.</p></div>
+      <figure class="editorial-image"><img src="assets/scenes/journey.webp" width="1672" height="941" alt="Парен влак на каменен виадукт сред шотландските планини." loading="lazy"><figcaption><span>02.1 — HOGWARTS EXPRESS</span><span>Пътуването</span></figcaption></figure>
+      <div class="editorial-split"><div><p class="eyebrow" lang="en">02.2 / THE THRESHOLD</p><h3>През портите</h3><p>От брега на езерото до старинните порти, всяка крачка разкрива нова част от света на магията.</p></div><figure class="editorial-image"><img src="assets/scenes/entrance.webp" width="1672" height="941" alt="Отворени готически порти с топла светлина." loading="lazy"></figure></div>
     </section>
-
+    <figure class="hall-interlude"><img src="assets/scenes/great-hall.webp" width="1672" height="941" alt="Голямата зала с дълги маси и плаващи свещи." loading="lazy"><figcaption><p class="eyebrow" lang="en">THE GREAT HALL</p><p>Тук започва една история,<br>която продължава векове.</p><a class="text-link" href="#history">Историята на Хогуортс <span aria-hidden="true">↓</span></a></figcaption></figure>
     <section class="section history" id="history" aria-labelledby="history-title">
       <div class="section-heading">
-        <p class="eyebrow" lang="en">06 / THE HISTORY</p>
-        <h2 id="history-title">Хиляда години<br><em>магия.</em></h2>
+        <p class="eyebrow" lang="en">03 / THE HISTORY</p>
+        <h2 id="history-title">Хиляда години <em>магия.</em></h2>
         <p class="intro">Хогуортс е измислено училище за магия от света на Хари Потър, създаден от Дж. К. Роулинг.</p>
       </div>
       <div class="columns">
@@ -117,11 +81,10 @@
         </tbody>
       </table>
     </section>
-
     <section class="section" id="houses" aria-labelledby="houses-title">
       <div class="section-heading">
-        <p class="eyebrow" lang="en">07 / THE FOUR HOUSES</p>
-        <h2 id="houses-title">Четири дома.<br><em>Един Хогуортс.</em></h2>
+        <p class="eyebrow" lang="en">04 / THE FOUR HOUSES</p>
+        <h2 id="houses-title">Четири дома. <em>Един Хогуортс.</em></h2>
         <p class="intro">Различни ценности, споделена история. Къде ще откриеш своето място?</p>
       </div>
       <div class="houses">
@@ -148,20 +111,18 @@
       </div>
       <a class="text-link" href="#sorting">Открий своя дом <span aria-hidden="true">↗</span></a>
     </section>
-
     <section class="section" id="study" aria-labelledby="study-title">
       <div class="section-heading">
-        <p class="eyebrow" lang="en">08 / MAGICAL EDUCATION</p>
-        <h2 id="study-title">Изкуството<br><em>на магията.</em></h2>
+        <p class="eyebrow" lang="en">05 / MAGICAL EDUCATION</p>
+        <h2 id="study-title">Изкуството <em>на магията.</em></h2>
       </div>
       <div class="study">
         <div><h3>Основни дисциплини</h3><ul><li>Отвари</li><li>Трансфигурация</li><li>Вълшебство</li><li>Билкология</li><li>Защита срещу Черните изкуства</li></ul></div>
         <div><h3>Пътят на ученика</h3><ol><li>Получаване на писмо за прием</li><li>Пътуване с Хогуортс Експрес</li><li>Разпределяне в дом</li><li>Обучение и изпити</li><li>Завършване на училището</li></ol></div>
       </div>
     </section>
-
     <section class="section sorting" id="sorting" aria-labelledby="sorting-title">
-      <p class="eyebrow" lang="en">09 / THE SORTING CEREMONY</p>
+      <p class="eyebrow" lang="en">06 / THE SORTING CEREMONY</p>
       <h2 id="sorting-title">Къде принадлежиш?</h2>
       <p class="intro">Разпределителната шапка ще ти помогне да откриеш своя дом.</p>
       <img class="sorting-hat" src="assets/hat.svg" width="180" height="180" alt="Магическата Разпределителна шапка на Хогуортс." loading="lazy">
@@ -177,9 +138,8 @@
       <p class="quiz-note">Пет въпроса. Следвай интуицията си.<br>Тестът е учебна демонстрация, не официално разпределение.</p>
     </section>
   </main>
-
   <footer>
-    <a class="brand" href="#invitation"><span aria-hidden="true">✦</span> HOGWARTS</a>
+    <a class="brand" href="#home"><span aria-hidden="true">✦</span> HOGWARTS</a>
     <p class="footer-title" lang="en">Every story begins with a little magic.</p>
     <p>Учебен проект · HTML, CSS и JavaScript · Неофициална фен страница</p>
     <nav aria-label="Източници и информация за проекта">
