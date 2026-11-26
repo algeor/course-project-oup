@@ -175,16 +175,24 @@ td { color: var(--muted); }
 .house:hover img, .house:focus-visible img { filter: brightness(1.08); }
 .house:hover .house-description, .house:focus-visible .house-description { color: var(--ivory); }
 
-.education-chapter { display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--space-6); align-items: center; }
-.library-image img { width: 100%; height: auto; }
+/* Илюстрована глава: увод, дисциплини и три етапа на обучението. */
+.education-chapter { display: grid; gap: var(--space-6); }
+.education-opening { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); grid-template-areas: "image copy"; gap: var(--space-6); align-items: center; }
+.education-opening .library-image { grid-area: image; }
+.education-copy { grid-area: copy; }
 .education-copy h1 { font-size: clamp(38px, 4.5vw, 62px); }
-.education-copy .section-note { margin-bottom: var(--space-4); }
-.study { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
-.study > div { padding-top: var(--space-3); border-top: var(--border); }
-.study h2 { font-size: 23px; line-height: 1.25; min-height: 2.5em; margin-bottom: var(--space-3); }
-.study ul, .study ol { padding-left: 18px; margin: 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
-.study li { padding-left: 4px; margin-bottom: 12px; }
-.study li::marker { color: var(--gold); }
+.education-intro { max-width: 60ch; color: var(--muted); font-size: 17px; line-height: 1.7; margin-bottom: var(--space-3); }
+.education-intro:last-child { margin-bottom: 0; }
+.education-chapter h2 { font-size: clamp(28px, 3vw, 40px); line-height: 1.2; margin-bottom: var(--space-3); }
+.education-note { color: var(--muted); margin-bottom: var(--space-4); }
+.subject-list, .school-years { list-style: none; padding: 0; margin: 0; }
+.subject-list > li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: var(--space-5); padding-block: var(--space-3); border-top: var(--border); }
+.subject-list h3, .school-years h3 { font-size: clamp(23px, 2.2vw, 28px); line-height: 1.25; margin-bottom: 0; }
+.subject-list p, .school-years li > p:not(.school-year-label) { max-width: 60ch; color: var(--muted); font-size: 17px; line-height: 1.7; margin-bottom: 0; }
+.school-years { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-4); }
+.school-years > li { padding-top: var(--space-3); border-top: var(--border); }
+.school-year-label { color: var(--gold); font: 12px/1.5 var(--font-label); letter-spacing: .12em; margin-bottom: var(--space-2); }
+.school-years h3 { margin-bottom: var(--space-2); }
 
 /* Финалът използва фотографията и спокойни текстови избори. */
 .ceremony-layout { display: grid; grid-template-columns: 1.05fr 1fr; gap: var(--space-6); align-items: start; }
@@ -225,10 +233,7 @@ footer nav { margin-block: var(--space-3); }
   .site-header { gap: var(--space-3); }
   nav { gap: 18px; }
   .invitation { grid-template-columns: .9fr 1.1fr; gap: var(--space-4); }
-  .education-chapter { grid-template-columns: 1fr 1fr; gap: var(--space-4); }
-  .study { grid-template-columns: 1fr; gap: var(--space-3); }
-  .study h2 { min-height: 0; margin-bottom: var(--space-2); }
-  .study ul, .study ol { font-size: 15px; }
+  .education-opening { grid-template-columns: minmax(0, 1fr); grid-template-areas: "copy" "image"; gap: var(--space-4); }
   .houses { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5) var(--space-4); }
   .house img { max-width: 260px; margin-inline: auto; }
   .house-description { max-width: 32ch; margin-inline: auto; }
@@ -246,7 +251,7 @@ footer nav { margin-block: var(--space-3); }
   .opening-footer { align-items: start; flex-direction: column; gap: 4px; bottom: var(--space-2); }
   .opening-index { font-size: 8px; }
   .opening-footer .text-link { font-size: 12px; }
-  .invitation, .education-chapter, .ceremony-layout, .chapter-introduction, .houses-heading { grid-template-columns: 1fr; gap: var(--space-4); }
+  .invitation, .ceremony-layout, .chapter-introduction, .houses-heading { grid-template-columns: 1fr; gap: var(--space-4); }
   .invitation-copy .section-note { margin-top: var(--space-3); }
   .invitation-visual { min-width: 0; }
   .invitation-photo { align-self: start; }
@@ -266,11 +271,8 @@ footer nav { margin-block: var(--space-3); }
   .house .founder { font-size: 12px; }
   .house-values { font-size: 14px; min-height: 3em; }
   .artifact-label { font-size: 8px; letter-spacing: .12em; }
-  .library-image { order: 2; }
-  .education-copy { order: 1; }
-  .study { grid-template-columns: 1fr 1fr; gap: var(--space-4); }
-  .study h2 { font-size: 22px; min-height: 2.5em; }
-  .study ul, .study ol { font-size: 14px; }
+  .subject-list > li { grid-template-columns: minmax(0, 1fr); gap: var(--space-2); }
+  .school-years { grid-template-columns: minmax(0, 1fr); gap: var(--space-4); }
   .ceremony-content { margin-top: var(--space-2); }
   #quiz-question { min-height: 0; }
   .quiz-note { font-size: 11px; }
@@ -282,9 +284,6 @@ footer nav { margin-block: var(--space-3); }
   .photo-caption { font-size: 8px; letter-spacing: .08em; }
   .house h2 { font-size: 20px; }
   .house-description { font-size: 13px; }
-  .study { grid-template-columns: 1fr; }
-  .study h3 { min-height: 0; }
-  .study ul, .study ol { font-size: 15px; }
   .result-house { grid-template-columns: 88px minmax(0, 1fr); gap: var(--space-2); }
   .result-house img { width: 88px; }
   .result-house h4 { font-size: 23px; }
