@@ -1,15 +1,189 @@
 <!DOCTYPE html>
 <html lang="bg">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Hogwarts — Beyond the Castle</title><link rel="stylesheet" href="style.css"></head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0B1118">
+  <meta name="description" content="Една магическа хроника на Хогуортс — история, четири дома, образование и интерактивна Разпределителна шапка.">
+  <title>Hogwarts — A Magical Chronicle</title>
+  <link rel="icon" href="assets/hat.svg" type="image/svg+xml">
+  <link rel="preload" as="image" href="assets/scenes/arrival.webp" fetchpriority="high">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
 <body>
-<div id="progress" aria-hidden="true"></div>
-<header><a class="brand" href="#home">✦ HOGWARTS</a><nav><a href="#history">История</a><a href="#houses">Домове</a><a href="#study">Обучение</a><a href="#sorting">Шапката</a></nav></header>
-<main>
-<section class="invitation" id="invitation"><p class="eyebrow">ПОКАНА ЗА ЕДНО НЕОБИКНОВЕНО ПЪТЕШЕСТВИЕ</p><div class="envelope" id="envelope"><div class="letter" id="letter" inert><h2>Хогуортс</h2><p>Уважаеми бъдещ ученико,</p><p>Имаме удоволствието да Ви поканим да откриете света на магията.</p><a class="button" href="#home">Към замъка ↓</a></div><div class="envelope-front"></div><div class="flap"></div><button class="seal" id="seal" aria-label="Отвори писмото" aria-expanded="false">H</button></div><p id="letter-hint">Натисни восъчния печат, за да отвориш писмото.</p></section>
-<section id="home" class="journey"><div class="hero"><img class="castle" src="assets/castle.svg" alt="Илюстрация на магически замък край езеро"><div class="hero-copy"><p class="eyebrow">ШОТЛАНДИЯ · ОКОЛО X ВЕК</p><h1>Hogwarts</h1><p class="subtitle">Beyond the Castle</p><p>Училище за магия и вълшебство</p><a class="button" href="#history">Открий магията ↓</a></div><div class="mist" aria-hidden="true"></div><div id="sparkles" aria-hidden="true"></div><span class="chapter">01 / THE ARRIVAL</span></div></section>
-<section class="section" id="history"><p class="eyebrow">02 / THE ARCHIVE</p><h2>Хиляда години магия</h2><p class="intro">Хогуортс е измислено училище за магия от света на Хари Потър, създаден от Дж. К. Роулинг.</p><div class="columns"><p>Училището е основано преди повече от хиляда години от четирима магьосници: Годрик Грифиндор, Хелга Хафълпаф, Роуина Рейвънклоу и Салазар Слидерин. Всеки от тях създава дом, който отразява неговите ценности.</p><p>Замъкът е скрит в Шотландия и е известен с подвижните си стълби, тайните проходи и вълшебните портрети. Учениците пристигат с експреса Хогуортс и прекарват седем години в изучаване на магия. Голямата зала е мястото за празници и церемонии.</p></div><table><caption>Визитна картичка на училището</caption><tbody><tr><th scope="row">Основано</th><td>Около X век</td></tr><tr><th scope="row">Местоположение</th><td>Шотландия (измислено място)</td></tr><tr><th scope="row">Основатели</th><td>Четирима магьосници</td></tr><tr><th scope="row">Обучение</th><td>7 години</td></tr><tr><th scope="row">Девиз</th><td>Draco dormiens nunquam titillandus</td></tr></tbody></table></section>
-<section class="section" id="houses"><p class="eyebrow">03 / THE FOUR HOUSES</p><h2>Четирите дома</h2><div class="houses"><article class="house red"><img src="assets/lion.svg" alt="Стилизиран лъв"><h3>Грифиндор</h3><p>Смелост и решителност</p><small>Годрик Грифиндор</small></article><article class="house green"><img src="assets/snake.svg" alt="Стилизирана змия"><h3>Слидерин</h3><p>Амбиция и находчивост</p><small>Салазар Слидерин</small></article><article class="house blue"><img src="assets/eagle.svg" alt="Стилизиран орел"><h3>Рейвънклоу</h3><p>Мъдрост и любознателност</p><small>Роуина Рейвънклоу</small></article><article class="house yellow"><img src="assets/badger.svg" alt="Стилизиран язовец"><h3>Хафълпаф</h3><p>Лоялност и трудолюбие</p><small>Хелга Хафълпаф</small></article></div></section>
-<section class="section" id="study"><p class="eyebrow">04 / THE CURRICULUM</p><h2>Изкуството на магията</h2><div class="study"><div><h3>Основни дисциплини</h3><ul><li>Отвари</li><li>Трансфигурация</li><li>Вълшебство</li><li>Билкология</li><li>Защита срещу Черните изкуства</li></ul></div><div><h3>Пътят на ученика</h3><ol><li>Получаване на писмо за прием</li><li>Пътуване с Хогуортс Експрес</li><li>Разпределяне в дом</li><li>Обучение и изпити</li><li>Завършване на училището</li></ol></div></div></section>
-<section class="section sorting" id="sorting"><p class="eyebrow">05 / THE SORTING CEREMONY</p><h2>Разпределителната шапка</h2><img src="assets/hat.svg" alt="Магическа шапка"><p>Кое качество цениш най-много?</p><div class="choices"><button data-house="Грифиндор">Смелост</button><button data-house="Слидерин">Амбиция</button><button data-house="Рейвънклоу">Мъдрост</button><button data-house="Хафълпаф">Лоялност</button></div><p id="result" aria-live="polite">Избери своето качество.</p></section>
-</main><footer><p>✦ Hogwarts — Beyond the Castle ✦</p><p>Учебен проект · HTML, CSS и JavaScript · Неофициална фен страница</p><a href="https://www.harrypotter.com/" target="_blank" rel="noopener noreferrer">Официален сайт на Harry Potter</a> · <a href="https://github.com/Meghamittal0920/itachi" target="_blank" rel="noopener noreferrer">Вдъхновение: Itachi</a></footer>
-<script src="script.js"></script></body></html>
+  <a class="skip-link" href="#history">Към съдържанието</a>
+  <div id="progress" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Хогуортс — начало"><span aria-hidden="true">✦</span> HOGWARTS</a>
+    <nav aria-label="Основна навигация">
+      <a href="#journey">Пътешествие</a>
+      <a href="#history">История</a>
+      <a href="#houses">Домове</a>
+      <a href="#study">Обучение</a>
+      <a href="#sorting">Шапката</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="opening" id="home" aria-labelledby="page-title">
+      <img class="opening-image" src="assets/scenes/arrival.webp" width="1672" height="941" alt="Осветен готически замък над езеро по здрач; лодки и фенери очакват на брега." fetchpriority="high" decoding="async">
+      <div class="opening-copy">
+        <p class="eyebrow" lang="en">SCOTLAND · A THOUSAND YEARS OF MAGIC</p>
+        <h1 id="page-title">Hogwarts</h1>
+        <p class="opening-subtitle" lang="en">Beyond the Castle</p>
+        <p class="opening-intro">Училище за магия и вълшебство</p>
+      </div>
+      <div class="opening-footer">
+        <p class="opening-index" lang="en">I — VI / A MAGICAL CHRONICLE</p>
+        <a class="text-link" href="#invitation">Началото на историята <span aria-hidden="true">↓</span></a>
+      </div>
+    </section>
+
+    <section class="section invitation" id="invitation" aria-labelledby="invitation-title">
+      <div class="invitation-copy">
+        <p class="eyebrow" lang="en">01 / THE INVITATION</p>
+        <h2 id="invitation-title">Твоята история<br><em>започва тук.</em></h2>
+        <p class="intro">Някои истории започват с писмо.<br>Твоята те очаква.</p>
+        <p class="section-note">Един печат. Едно обещание.<br>Един свят, който предстои да откриеш.</p>
+        <button class="text-link action-link" id="letter-toggle" type="button" aria-controls="letter" aria-expanded="false" hidden>Отвори писмото <span aria-hidden="true">↗</span></button>
+      </div>
+      <div class="invitation-visual">
+        <figure class="invitation-photo" id="invitation-photo">
+          <img src="assets/editorial/invitation.webp" width="1536" height="1024" alt="Античен пергаментов плик с герб на Хогуортс и бордо восъчен печат, сред книги, перо и свещ." loading="lazy" decoding="async">
+          <figcaption class="photo-caption"><span lang="en">01.1 / THE ACCEPTANCE LETTER</span><span>Поканата</span></figcaption>
+        </figure>
+        <!-- Без JavaScript писмото остава видимо под снимката. -->
+        <article class="letter" id="letter" tabindex="-1" aria-labelledby="letter-title">
+          <h3 id="letter-title">Хогуортс</h3>
+          <p class="letter-address">Уважаеми бъдещ ученико,</p>
+          <p>Имаме удоволствието да Ви поканим да откриете света на магията.</p>
+          <a class="letter-accept" href="#journey">Приемам поканата <span aria-hidden="true">↗</span></a>
+          <div class="letter-footer"><p>С най-добри пожелания,<br>Хогуортс</p><button class="letter-close" id="letter-close" type="button" hidden>Затвори писмото</button></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section journey-chapter" id="journey" aria-labelledby="journey-title">
+      <div class="chapter-introduction">
+        <div><p class="eyebrow" lang="en">02 / THE JOURNEY</p><h2 id="journey-title">Отвъд<br><em>познатото.</em></h2></div>
+        <p class="intro">Пътят към Хогуортс започва с едно необикновено пътуване през шотландските планини.</p>
+      </div>
+      <figure class="editorial-image train-image">
+        <img src="assets/scenes/journey.webp" width="1672" height="941" alt="Парен влак пресича каменен виадукт над езеро сред шотландските планини по залез." loading="lazy" decoding="async">
+        <figcaption class="photo-caption"><span lang="en">02.1 / HOGWARTS EXPRESS</span><span>Пътуването</span></figcaption>
+      </figure>
+      <div class="editorial-split entrance-layout">
+        <div class="entrance-copy"><p class="eyebrow" lang="en">02.2 / THE THRESHOLD</p><h3>През <br><em>портите.</em></h3><p>От брега на езерото до старинните порти, всяка крачка разкрива нова част от света на магията.</p></div>
+        <figure class="editorial-image"><img src="assets/scenes/entrance.webp" width="1672" height="941" alt="Отворени дървени порти на готически замък разкриват топло осветен коридор в нощта." loading="lazy" decoding="async"><figcaption class="photo-caption"><span lang="en">THE CASTLE GATES</span><span>Прагът</span></figcaption></figure>
+      </div>
+    </section>
+
+    <figure class="hall-interlude">
+      <img src="assets/scenes/great-hall.webp" width="1672" height="941" alt="Голямата зала с дълги маси, плаващи свещи, знамена на четирите дома и звезден таван." loading="lazy" decoding="async">
+      <figcaption>
+        <p class="eyebrow" lang="en">02.3 / THE GREAT HALL</p>
+        <p class="hall-quote">Тук започва една история,<br>която продължава векове.</p>
+        <a class="text-link" href="#history">Историята на Хогуортс <span aria-hidden="true">↓</span></a>
+      </figcaption>
+    </figure>
+
+    <section class="section history" id="history" aria-labelledby="history-title">
+      <div class="chapter-introduction">
+        <div><p class="eyebrow" lang="en">03 / THE HISTORY</p><h2 id="history-title">Хиляда години<br><em>магия.</em></h2></div>
+        <p class="intro">Хогуортс е измислено училище за магия от света на Хари Потър, създаден от Дж. К. Роулинг.</p>
+      </div>
+      <div class="columns">
+        <p>Училището е основано преди повече от хиляда години от четирима магьосници: Годрик Грифиндор, Хелга Хафълпаф, Роуина Рейвънклоу и Салазар Слидерин. Всеки от тях създава дом, който отразява неговите ценности.</p>
+        <p>Замъкът е скрит в Шотландия и е известен с подвижните си стълби, тайните проходи и вълшебните портрети. Учениците пристигат с експреса Хогуортс и прекарват седем години в изучаване на магия. Голямата зала е мястото за празници и церемонии.</p>
+      </div>
+      <div class="archive-record">
+        <p class="eyebrow" lang="en">FROM THE SCHOOL ARCHIVE</p>
+        <table>
+          <caption>Визитна картичка на училището</caption>
+          <tbody>
+            <tr><th scope="row">Основано</th><td>Около X век</td></tr>
+            <tr><th scope="row">Местоположение</th><td>Шотландия (измислено място)</td></tr>
+            <tr><th scope="row">Основатели</th><td>Четирима магьосници</td></tr>
+            <tr><th scope="row">Обучение</th><td>7 години</td></tr>
+            <tr><th scope="row">Девиз</th><td lang="la">Draco dormiens nunquam titillandus</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section houses-chapter" id="houses" aria-labelledby="houses-title">
+      <div class="section-heading">
+        <p class="eyebrow" lang="en">04 / THE FOUR HOUSES</p>
+        <h2 id="houses-title">Четири дома.<br><em>Един Хогуортс.</em></h2>
+        <p class="intro">Различни ценности, споделена история.<br>Къде ще откриеш своето място?</p>
+      </div>
+      <div class="houses">
+        <article class="house" tabindex="0" aria-labelledby="gryffindor-title">
+          <figure><img src="assets/houses/gryffindor.webp" width="1024" height="1536" alt="Цяло бордо кадифено знаме на Грифиндор със златен бродиран лъв, декоративна пръчка и ресни." loading="lazy" decoding="async"><figcaption class="artifact-label" lang="en">I / GRYFFINDOR</figcaption></figure>
+          <h3 id="gryffindor-title">Грифиндор</h3><p class="founder">Годрик Грифиндор</p><p class="house-values">Смелост и решителност</p><p class="house-description">Домът на онези, които намират смелост да постъпят правилно дори когато е трудно.</p>
+        </article>
+        <article class="house" tabindex="0" aria-labelledby="slytherin-title">
+          <figure><img src="assets/houses/slytherin.webp" width="1024" height="1536" alt="Цяло изумрудено кадифено знаме на Слидерин със сребърна бродирана змия, декоративна пръчка и ресни." loading="lazy" decoding="async"><figcaption class="artifact-label" lang="en">II / SLYTHERIN</figcaption></figure>
+          <h3 id="slytherin-title">Слидерин</h3><p class="founder">Салазар Слидерин</p><p class="house-values">Амбиция и находчивост</p><p class="house-description">Домът на целеустремените, които виждат възможности и търсят свой път към успеха.</p>
+        </article>
+        <article class="house" tabindex="0" aria-labelledby="ravenclaw-title">
+          <figure><img src="assets/houses/ravenclaw.webp" width="1024" height="1536" alt="Цяло тъмносиньо кадифено знаме на Рейвънклоу с бронзов бродиран орел, декоративна пръчка и ресни." loading="lazy" decoding="async"><figcaption class="artifact-label" lang="en">III / RAVENCLAW</figcaption></figure>
+          <h3 id="ravenclaw-title">Рейвънклоу</h3><p class="founder">Роуина Рейвънклоу</p><p class="house-values">Мъдрост и любознателност</p><p class="house-description">Домът на любопитните умове, за които всеки въпрос е начало на ново откритие.</p>
+        </article>
+        <article class="house" tabindex="0" aria-labelledby="hufflepuff-title">
+          <figure><img src="assets/houses/hufflepuff.webp" width="1024" height="1536" alt="Цяло златно кадифено знаме на Хафълпаф с бродиран язовец, декоративна пръчка и ресни." loading="lazy" decoding="async"><figcaption class="artifact-label" lang="en">IV / HUFFLEPUFF</figcaption></figure>
+          <h3 id="hufflepuff-title">Хафълпаф</h3><p class="founder">Хелга Хафълпаф</p><p class="house-values">Лоялност и трудолюбие</p><p class="house-description">Домът на верните приятели, които ценят честността, търпението и общите усилия.</p>
+        </article>
+      </div>
+      <a class="text-link" href="#sorting">Открий своя дом <span aria-hidden="true">↗</span></a>
+    </section>
+
+    <section class="section education-chapter" id="study" aria-labelledby="study-title">
+      <figure class="editorial-image library-image"><img src="assets/editorial/library.webp" width="1672" height="941" alt="Готическа библиотека с древни книги, свещи, перо и големи прозорци към замъка по здрач." loading="lazy" decoding="async"><figcaption class="photo-caption"><span lang="en">05.1 / THE LIBRARY</span><span>Знанието</span></figcaption></figure>
+      <div class="education-copy">
+        <p class="eyebrow" lang="en">05 / MAGICAL EDUCATION</p>
+        <h2 id="study-title">Изкуството<br><em>на магията.</em></h2>
+        <p class="section-note">Между страниците на старите книги всяко откритие води към следващото.</p>
+        <div class="study">
+          <div><h3>Основни дисциплини</h3><ul><li>Отвари</li><li>Трансфигурация</li><li>Вълшебство</li><li>Билкология</li><li>Защита срещу Черните изкуства</li></ul></div>
+          <div><h3>Пътят на ученика</h3><ol><li>Получаване на писмо за прием</li><li>Пътуване с Хогуортс Експрес</li><li>Разпределяне в дом</li><li>Обучение и изпити</li><li>Завършване на училището</li></ol></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section sorting" id="sorting" aria-labelledby="sorting-title">
+      <div class="chapter-introduction">
+        <div><p class="eyebrow" lang="en">06 / THE SORTING CEREMONY</p><h2 id="sorting-title">Къде<br><em>принадлежиш?</em></h2></div>
+        <p class="intro">Разпределителната шапка ще ти помогне да откриеш своя дом. Пет въпроса. Следвай интуицията си.</p>
+      </div>
+      <div class="ceremony-layout">
+        <figure class="editorial-image sorting-photo"><img src="assets/editorial/sorting-hat.webp" width="1448" height="1086" alt="Разпределителната шапка с изразително лице стои върху дървено столче в Голямата зала, сред плаващи свещи." loading="lazy" decoding="async"><figcaption class="photo-caption"><span lang="en">THE SORTING HAT</span><span>Твоят избор</span></figcaption></figure>
+        <div class="ceremony-content">
+          <div class="quiz" id="quiz" hidden>
+            <p id="quiz-step">Въпрос 1 от 5</p>
+            <div class="quiz-progress" aria-hidden="true"><span id="quiz-progress"></span></div>
+            <h3 id="quiz-question" tabindex="-1">Кое качество цениш най-много?</h3>
+            <div class="choices" id="quiz-choices" role="group" aria-labelledby="quiz-question"></div>
+            <section class="quiz-result" id="result" aria-labelledby="result-title" hidden>
+              <h3 id="result-title" tabindex="-1">Твоят дом</h3>
+              <p id="result-summary" aria-live="polite"></p>
+              <div class="result-houses" id="result-houses"></div>
+              <button class="text-link action-link" id="quiz-reset" type="button">Повтори церемонията <span aria-hidden="true">↗</span></button>
+            </section>
+          </div>
+          <noscript><p class="intro">За интерактивния тест е необходимо да включите JavaScript. Можете да прочетете за <a href="#houses">четирите дома</a> и без него.</p></noscript>
+          <p class="quiz-note">Тестът е учебна демонстрация,<br>не официално разпределение.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="#home"><span aria-hidden="true">✦</span> HOGWARTS</a>
+    <p class="footer-title" lang="en">Every story begins with a little magic.</p>
+    <p>Учебен проект · HTML, CSS и JavaScript · Неофициална фен страница</p>
+    <nav aria-label="Източници и информация за проекта"><a href="https://www.harrypotter.com/" target="_blank" rel="noopener noreferrer">Harry Potter</a><a href="https://github.com/algeor/course-project-oup" target="_blank" rel="noopener noreferrer">Код на проекта</a></nav>
+  </footer>
+</body>
+</html>
