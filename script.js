@@ -1,7 +1,5 @@
 'use strict';
 
-const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
-const mousePreference = matchMedia('(hover: hover) and (pointer: fine)');
 const progress = document.getElementById('progress');
 const header = document.querySelector('.site-header');
 let framePending = false;
@@ -120,6 +118,11 @@ function initQuiz() {
   const quizProgress = document.getElementById('quiz-progress');
   quiz.hidden = false;
 
+  function focusQuizHeading(heading) {
+    heading.focus({ preventScroll: true });
+    heading.scrollIntoView({ block: 'nearest', behavior: 'instant' });
+  }
+
   function renderResult() {
     const highest = Math.max(...scores);
     const winners = houses.filter((house, index) => scores[index] === highest);
@@ -141,8 +144,8 @@ function initQuiz() {
       const image = document.createElement('img');
       image.src = 'assets/houses/' + house.slug + '.webp';
       image.alt = 'Цялото бродирано знаме на ' + house.name + ', с пръчка и ресни.';
-      image.width = 1024;
-      image.height = 1536;
+      image.width = 520;
+      image.height = 780;
       const copy = document.createElement('div');
       const heading = document.createElement('h3');
       heading.textContent = house.name;
@@ -156,8 +159,8 @@ function initQuiz() {
       article.append(image, copy);
       resultHouses.appendChild(article);
     });
-    resultTitle.focus({ preventScroll: true });
     refreshLayout();
+    focusQuizHeading(resultTitle);
   }
 
   function renderQuestion() {
@@ -187,7 +190,7 @@ function initQuiz() {
         scores[index]++;
         questionIndex++;
         renderQuestion();
-        if (questionIndex < questions.length) question.focus({ preventScroll: true });
+        if (questionIndex < questions.length) focusQuizHeading(question);
       });
       choices.appendChild(button);
     });
@@ -203,49 +206,8 @@ function initQuiz() {
     question.hidden = false;
     choices.hidden = false;
     renderQuestion();
-    question.focus({ preventScroll: true });
+    focusQuizHeading(question);
   });
   renderQuestion();
 }
 initQuiz();
-
-// Родният курсор остава видим. Следата има лимит и автоматично изтриване.
-const glitterColors = ['#C9AD78', '#E2D0A6', '#FFF2D6'];
-const glitterParticles = new Set();
-let glitterEnabled = false;
-let lastParticle = 0;
-function removeParticle(particle) {
-  particle.remove();
-  glitterParticles.delete(particle);
-}
-function addGlitter(event) {
-  if (!glitterEnabled || event.pointerType !== 'mouse') return;
-  const now = performance.now();
-  if (now - lastParticle < 65 || glitterParticles.size >= 14) return;
-  lastParticle = now;
-  const particle = document.createElement('span');
-  particle.className = 'trail';
-  particle.setAttribute('aria-hidden', 'true');
-  const size = 1.5 + Math.random() * 2.5;
-  particle.style.width = particle.style.height = size + 'px';
-  particle.style.left = event.clientX - size / 2 + 'px';
-  particle.style.top = event.clientY - size / 2 + 'px';
-  particle.style.setProperty('--particle-color', glitterColors[Math.floor(Math.random() * glitterColors.length)]);
-  glitterParticles.add(particle);
-  document.body.appendChild(particle);
-  particle.addEventListener('animationend', () => removeParticle(particle), { once: true });
-  setTimeout(() => removeParticle(particle), 850);
-}
-function updateGlitterPreference() {
-  const enabled = !motionPreference.matches && mousePreference.matches && navigator.maxTouchPoints === 0;
-  if (enabled === glitterEnabled) return;
-  glitterEnabled = enabled;
-  if (enabled) window.addEventListener('pointermove', addGlitter, { passive: true });
-  else {
-    window.removeEventListener('pointermove', addGlitter);
-    glitterParticles.forEach(removeParticle);
-  }
-}
-motionPreference.addEventListener('change', updateGlitterPreference);
-mousePreference.addEventListener('change', updateGlitterPreference);
-updateGlitterPreference();
