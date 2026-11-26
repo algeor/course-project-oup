@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0B1118">
+  <meta name="description" content="Открий своя дом в Хогуортс с петте въпроса на Разпределителната шапка.">
+  <title>Шапката — Hogwarts</title>
+  <link rel="icon" href="assets/hat.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Към съдържанието</a>
+  <div id="progress" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Хогуортс — начало"><span aria-hidden="true">✦</span> HOGWARTS</a>
+    <nav aria-label="Основна навигация">
+      <a href="journey.html">Пътешествие</a>
+      <a href="history.html">История</a>
+      <a href="houses.html">Домове</a>
+      <a href="study.html">Обучение</a>
+      <a href="sorting.html" aria-current="page">Шапката</a>
+    </nav>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <section class="section sorting" id="sorting" aria-labelledby="sorting-title">
+      <span class="chapter-ornament" aria-hidden="true"><img src="assets/editorial/chapter-ornament.svg" width="240" height="44" alt=""></span>
+      <div class="chapter-introduction">
+        <div><p class="eyebrow" lang="en">06 / THE SORTING CEREMONY</p><h1 id="sorting-title">Къде<br><em>принадлежиш?</em></h1></div>
+        <p class="intro">Разпределителната шапка ще ти помогне да откриеш своя дом. Пет въпроса. Следвай интуицията си.</p>
+      </div>
+      <div class="ceremony-layout">
+        <figure class="editorial-image sorting-photo"><img src="assets/editorial/sorting-hat.webp" width="1448" height="1086" alt="Разпределителната шапка с изразително лице стои върху дървено столче в Голямата зала, сред плаващи свещи." loading="eager" fetchpriority="high" decoding="async"><figcaption class="photo-caption"><span lang="en">THE SORTING HAT</span><span>Твоят избор</span></figcaption></figure>
+        <div class="ceremony-content">
+          <div class="quiz" id="quiz" hidden>
+            <p id="quiz-step">Въпрос 1 от 5</p>
+            <div class="quiz-progress" aria-hidden="true"><span id="quiz-progress"></span></div>
+            <h2 class="subheading" id="quiz-question" tabindex="-1">Кое качество цениш най-много?</h2>
+            <div class="choices" id="quiz-choices" role="group" aria-labelledby="quiz-question"></div>
+            <section class="quiz-result" id="result" aria-labelledby="result-title" hidden>
+              <h2 class="subheading" id="result-title" tabindex="-1">Твоят дом</h2>
+              <p id="result-summary" aria-live="polite"></p>
+              <div class="result-houses" id="result-houses"></div>
+              <button class="text-link action-link" id="quiz-reset" type="button">Повтори церемонията <span aria-hidden="true">↗</span></button>
+            </section>
+          </div>
+          <noscript><p class="intro">За интерактивния тест е необходимо да включите JavaScript. Можете да прочетете за <a href="houses.html">четирите дома</a> и без него.</p></noscript>
+          <p class="quiz-note">Тестът е учебна демонстрация,<br>не официално разпределение.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="index.html"><span aria-hidden="true">✦</span> HOGWARTS</a>
+    <p class="footer-title" lang="en">Every story begins with a little magic.</p>
+    <p>Учебен проект · HTML, CSS и JavaScript · Неофициална фен страница</p>
+    <nav aria-label="Източници и информация за проекта"><a href="https://www.harrypotter.com/" target="_blank" rel="noopener noreferrer">Harry Potter</a><a href="https://github.com/algeor/course-project-oup" target="_blank" rel="noopener noreferrer">Код на проекта</a></nav>
+  </footer>
+</body>
+</html>
